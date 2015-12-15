@@ -26,16 +26,9 @@
 <script>
 var sideLength = document.getElementById('sideLength');
 var resettone = document.getElementById('resettone');
-
+var squares = document.getElementsByClassName('divTab');
 resettone.onclick = scancellone;
 tableCreate()
-function scancellone(){ 
-    document.getElementById('tabellone').outerHTML='';
-    tableCreate()
-    document.getElementsByClassName("divTab").outerHTML='';
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor='#555';};
-}
 
 
 function tableCreate(){             //DIV CREATOR
@@ -54,7 +47,7 @@ function tableCreate(){             //DIV CREATOR
     }
     cont.appendChild(tbl);  //INSERT IN DOCUMENT*/
 
-    var squares = document.getElementsByClassName('divTab');    //HOVER EFFECT
+    //squares = document.getElementsByClassName('divTab');    //HOVER EFFECT
 for (var i = 0; i < squares.length; i++) {
     squares[i].onmouseover = function rosso(){
       this.style.backgroundColor='#800';}
@@ -63,16 +56,24 @@ for (var i = 0; i < squares.length; i++) {
     }
 }    
 
-/*var global = 'global variable <br>';
-document.write('outside the function ' + global);
-function stupid(){
-    var local = 'local variable <br>';
-    document.write('inside the function ' + local);
-    document.write('inside the function ' + global);
-    }
-stupid();*/
+function scancellone(){ 
+    document.getElementById('tabellone').outerHTML='';
+    tableCreate()
+    squares.outerHTML='';
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor='#555';};
+}
 
-document.write('<br>check');
+
+//SQUARES SIZE    
+
+var squareSize = Math.floor(550/sideLength.value);
+document.write("\"" + squareSize + "px\"");
+//document.write(squares.length);
+for (var j=0; j<squares.length; j++){
+    squares[j].style.width="\"" + squareSize + "px\"";
+    squares[j].style.height="10px";
+}
 
 
 
