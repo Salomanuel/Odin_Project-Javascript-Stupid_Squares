@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>square</title>
+	<style>
+		body {background-color:#222;font-size:1.5em;color:#fff;}
+		
+		/*div {border: 1px black solid; 
+			width:50px; height:50px;
+			background-color:#666; float:right;
+		}*/
+	</style>
+</head>
+<p>Click the button to make a SQUARE.</p>
+
+
+
+
+<script>
+var n=4;//take grid column value as you want
+    var j=1;
+    for(var i=1;i<n;i++)
+    {document.body.innerHTML+='<div class="row">';
+    for(k=0;k<n;k++)
+    {document.body.innerHTML+='<div class="gridsquare">'+(j++)+'</div>';}
+
+    document.body.innerHTML+='</div>';}
+</script>
+</body>
+</html>

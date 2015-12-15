@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>prova3</title>
+	<meta charset=utf-8 />
+<style>
+	body	{background-color:#272822; font-size:1.5em; color:#aaa; }
+	h3,p, table, form
+            {color:#c00; border: 2px solid black; 
+			padding:10px; background-color:#333530; 
+            display:block; width:550px; margin: 0 auto}
+    form    {width:170px;}
+    .divTab  {width:20px; height:20px;
+            border:2px solid black; background-color:#555;}
+
+</style>
+</head>
+<body>
+<h3>third try at the Project: Javascript/jQuery</h3>
+<form>
+    <input type='button' id='resettone' value='go'>
+    <input type='text' id='sideLength' size='1' value='16'> side size
+</form>
+<div id='containerTable'></div>
+
+<script>
+var sideLength = document.getElementById('sideLength');
+var resettone = document.getElementById('resettone');
+
+resettone.onclick = scancellone;
+tableCreate()
+function scancellone(){ 
+    document.getElementById('tabellone').outerHTML='';
+    tableCreate()
+    document.getElementsByClassName("divTab").outerHTML='';
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor='#555';};
+}
+
+
+function tableCreate(){             //DIV CREATOR
+   //sideLength = document.getElementById('sideLength');
+    var cont    = document.getElementById('containerTable');
+        tbl  = document.createElement('table'); 
+        tbl.id = 'tabellone';   
+   for(var i = 0; i < sideLength.value; i++){
+        var tr = tbl.insertRow();       //ROWS
+        for(var j = 0; j < sideLength.value; j++){     //COLUMNS           
+                var td = tr.insertCell();
+                var div = document.createElement('div');
+                div.className = 'divTab';
+                td.appendChild(div);    
+        }
+    }
+    cont.appendChild(tbl);  //INSERT IN DOCUMENT*/
+
+    var squares = document.getElementsByClassName('divTab');    //HOVER EFFECT
+for (var i = 0; i < squares.length; i++) {
+    squares[i].onmouseover = function rosso(){
+      this.style.backgroundColor='#800';}
+    /*squares[i].onmouseout=function grigio(){
+       this.style.backgroundColor='#555';}*/    
+    }
+}    
+
+/*var global = 'global variable <br>';
+document.write('outside the function ' + global);
+function stupid(){
+    var local = 'local variable <br>';
+    document.write('inside the function ' + local);
+    document.write('inside the function ' + global);
+    }
+stupid();*/
+
+document.write('<br>check');
+
+
+
+</script>
+</body>
+</html>

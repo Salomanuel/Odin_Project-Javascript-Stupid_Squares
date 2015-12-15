@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>square</title>
+	<style>
+		body {background-color:#222;font-size:1.5em;color:#fff;}
+		
+		div {border: 1px black solid; 
+			width:50px; height:50px;
+			background-color:#666; float:right;
+		}
+	</style>
+</head>
+<p>Click the button to make a SQUARE.</p>
+
+<button onclick="quadrato()">quadrato</button>
+<button onclick="accapo()">accapo</button>
+
+
+<script>
+function quadrato() {
+    var btn = document.createElement("DIV");
+    document.body.appendChild(btn);
+    btn.innerText = 'culo';
+}
+function accapo() {
+    var btn = document.createElement("br");
+    document.body.appendChild(btn);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Array Combinations</title>
+	<meta charset=utf-8 />
+<style>
+	body	{background-color:#272822; font-size:1.5em; color:#aaa; 
+            position:relative; left:30%;}
+	h3,p	{color:#c00; border: 2px solid black; 
+			padding:10px; background-color:#333530; 
+            display:inline-block;}
+	table,td{text-align: center;border:1px solid yellow; padding:10px;}
+</style>
+</head>
+<body>
+<h3>motherfucking table</h3>
+   
+<script>
+
+function tableCreate(){
+    var body = document.body,
+        tbl  = document.createElement('table');
+    
+    for(var i = 0; i < 5; i++){
+        var tr = tbl.insertRow();       //ROWS
+        for(var j = 0; j < 5; j++){     //COLUMNS           
+                var td = tr.insertCell();
+                td.appendChild(document.createTextNode('Cell'));//CELL        
+        }
+    }
+    body.appendChild(tbl);  //INSERT IN DOCUMENT
+}
+tableCreate();
+</script>
+</body>
+</html>

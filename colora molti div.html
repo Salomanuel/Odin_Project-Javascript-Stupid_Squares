@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>prova3</title>
+	<meta charset=utf-8 />
+<style>
+	body	{background-color:#272822; font-size:1.5em; color:#aaa; }
+	h3,p	{color:#c00; border: 2px solid black; 
+			padding:10px; background-color:#333530; 
+            display:inline-block;position:relative; left:10%;}
+
+    div {width:90px; height:50px;
+        background-color:#444; border: 1px solid black; 
+            padding:5px;       }
+	/*#idCulo    {background-color:#050;}*/
+    .classEl    {background-color:#500;}
+
+</style>
+</head>
+<body>
+<h3>third try at the Project: Javascript/jQuery</h3>
+
+
+<div class='classEl'>1</div>
+<div class='classEl'>2</div>
+<div class='classEl'>3</div>
+<div class='classEl'>4</div>
+<div class='classEl'>5</div>
+
+<script>
+
+var div = document.getElementsByClassName("classEl");
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {
+       this.style.backgroundColor = "green";
+    }
+    var myVar;
+    div[i].onmouseout = function() {
+        myVar=setTimeout(function (){
+          this.style.backgroundColor = "#500";  }, 500);
+    }
+    
+}
+
+
+/*var div = document.getElementsByClassName("classEl");     //BACKUP
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {
+       this.style.backgroundColor = "green";
+    }
+    div[i].onmouseout = function() {
+      this.style.backgroundColor = "#500";  
+    }
+}
+/*var div = document.getElementsByClassName("classEl");     //BACKUP2
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {
+       this.style.backgroundColor = "green";
+    }
+    div[i].onmouseout = function() {
+      this.style.backgroundColor = "#500";  
+    }
+}
+*/
+</script>
+</body>
+</html>
