@@ -9,9 +9,12 @@
             {color:#c00; border: 2px solid black; 
 			padding:10px; background-color:#333530; 
             display:block; width:550px; margin: 0 auto}
-    form    {width:170px;}
+    form    {width:200px;}
+    input[type="number"] {width:35px;}
     .divTab  {width:20px; height:20px;
-            border:2px solid black; background-color:#555;}
+             border:1px solid black;background-color:#555;}
+    td      {padding:0; margin:0;}
+
 
 </style>
 </head>
@@ -19,52 +22,48 @@
 <h3>third try at the Project: Javascript/jQuery</h3>
 <form>
     <input type='button' id='resettone' value='go'>
-    <input type='text' id='sideLength' size='1' value='16'> side size
+    <input type='number' id='sideLength' size='1' value='16' max='36' min='1'> side size
 </form>
 <div id='containerTable'></div>
-
 <script>
-var sideLength = document.getElementById('sideLength');
-var resettone = document.getElementById('resettone');
-
+var sideLength  = document.getElementById('sideLength');
+var resettone   = document.getElementById('resettone');
+var squares     = document.getElementsByClassName('divTab');
 resettone.onclick = scancellone;
+
 tableCreate()
-function scancellone(){ 
-    document.getElementById('tabellone').outerHTML='';
-    tableCreate()
-    document.getElementsByClassName("divTab").outerHTML='';
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].style.backgroundColor='#555';};
-}
-
-
-function tableCreate(){             //DIV CREATOR
-   //sideLength = document.getElementById('sideLength');
+function tableCreate(){                                 //DIV CREATOR
     var cont    = document.getElementById('containerTable');
         tbl  = document.createElement('table'); 
         tbl.id = 'tabellone';   
-   for(var i = 0; i < sideLength.value; i++){
-        var tr = tbl.insertRow();       //ROWS
-        for(var j = 0; j < sideLength.value; j++){     //COLUMNS           
-                var td = tr.insertCell();
+    for(var i = 0; i < sideLength.value; i++){
+        var tr = tbl.insertRow();                       //ROWS
+        for(var j = 0; j < sideLength.value; j++){      //COLUMNS           
+                var td = tr.insertCell();               //CELLS
                 var div = document.createElement('div');
                 div.className = 'divTab';
                 td.appendChild(div);    
         }
     }
-    cont.appendChild(tbl);  //INSERT IN DOCUMENT*/
-
-    var squares = document.getElementsByClassName('divTab');    //HOVER EFFECT
-for (var i = 0; i < squares.length; i++) {
-    squares[i].onmouseover = function rosso(){
-      this.style.backgroundColor='#800';}
-    /*squares[i].onmouseout=function grigio(){
-       this.style.backgroundColor='#555';}*/    
+    cont.appendChild(tbl);                              //INSERT IN DOCUMENT
+    
+    for (var i = 0; i < squares.length; i++) {          //HOVER EFFECT
+        squares[i].onmouseover = function rosso(){
+            this.style.backgroundColor='#800';}
+    }
+    var squareSize = Math.round(400/sideLength.value);  //SQUARES SIZE  
+    for (var j=0; j<squares.length; j++){
+        squares[j].style.width=squareSize + "px";
+        squares[j].style.height=squareSize + "px";
     }
 }    
-
-
-
+function scancellone(){                                 //SCANCELLONE
+    document.getElementById('tabellone').outerHTML='';
+    tableCreate()
+    squares.outerHTML='';
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor='#555';};
+}
 </script>
 </body>
 </html>
