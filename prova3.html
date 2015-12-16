@@ -26,6 +26,24 @@
 </form>
 <div id='containerTable'></div>
 <script>
+var color=[], j=0, R=0, G=0, B=0;        //color progression
+                                  
+for ( j=0,  R=0,  G=0,  B=0;            // BRIGHTER colors
+      j<10, R<10, G<10, B<10; 
+      j++,  R++,  G++,  B++){ 
+  color[j]    = ['#' + R + 0 + 0];
+  color[j+10] = ['#' + 9 + B + 0];
+  color[j+30] = ['#' + 0 + 9 + G];
+  color[j+50] = ['#' + R + 0 + 9];
+  }                                       
+for ( j=0,  R=9,  G=9,  B=9;          //DARKER colors
+      j<10, R>=0,  G>=0,  B>=0; 
+      j++,  R--,  G--,  B--){ 
+  color[j+20] = ['#' + R + 9 + 0];
+  color[j+40] = ['#' + 0 + B + 9];
+  color[j+60] = ['#' + 9 + 0 + G];
+  }
+
 var sideLength  = document.getElementById('sideLength');
 var resettone   = document.getElementById('resettone');
 var squares     = document.getElementsByClassName('divTab');
@@ -49,8 +67,10 @@ function tableCreate(){                                 //DIV CREATOR
     
     for (var i = 0; i < squares.length; i++) {          //HOVER EFFECT
         squares[i].onmouseover = function rosso(){
-            this.style.backgroundColor='#800';}
+            j+=1; if (j>color.length) {j=1};
+            this.style.backgroundColor=color[j];}
     }
+    j=Math.floor(Math.random()*70);           //random start
     var squareSize = Math.round(400/sideLength.value);  //SQUARES SIZE  
     for (var j=0; j<squares.length; j++){
         squares[j].style.width=squareSize + "px";
@@ -64,6 +84,10 @@ function scancellone(){                                 //SCANCELLONE
     for (var i = 0; i < squares.length; i++) {
         squares[i].style.backgroundColor='#555';};
 }
+
+
+
+
 </script>
 </body>
 </html>
