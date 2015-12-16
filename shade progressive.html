@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>shades</title>
+	<meta charset=utf-8 />
+<style>
+	body	{background-color:#272822; font-size:1.5em; color:#aaa; }
+	h3,p	{color:#c00; border: 2px solid black; 
+			padding:10px; background-color:#333530; 
+            display:inline-block;position:relative; left:10%;}
+
+    div {width:90px; height:50px;
+        background-color:#444; border: 1px solid black; 
+            padding:5px;       }
+	/*#idCulo    {background-color:#050;}*/
+    .classEl    {background-color:#500;}
+
+</style>
+</head>
+<body>
+<h3>third try at the Project: Javascript/jQuery</h3>
+
+
+<div class='classEl'>1</div>
+<div class='classEl'>2</div>
+<div class='classEl'>3</div>
+<div class='classEl'>4</div>
+<div class='classEl'>5</div>
+<br><div id='risu'>test</div>
+<script>
+//R  RB  B   BG  G  GR     RGB  rainbow
+//0  10  20  30  40  50         j progression
+
+
+var color=[], j=0, R=0, G=0, B=0;        //color progression
+                                  
+for ( j=0,  R=0,  G=0,  B=0;            // BRIGHTER colors
+      j<10, R<10, G<10, B<10; 
+      j++,  R++,  G++,  B++){ 
+  color[j]    = ['#' + R + 0 + 0];
+  color[j+10] = ['#' + 9 + B + 0];
+  color[j+30] = ['#' + 0 + 9 + G];
+  color[j+50] = ['#' + R + 0 + 9];
+  }                                       
+for ( j=0,  R=9,  G=9,  B=9;          //DARKER colors
+      j<10, R>=0,  G>=0,  B>=0; 
+      j++,  R--,  G--,  B--){ 
+  color[j+20] = ['#' + R + 9 + 0];
+  color[j+40] = ['#' + 0 + B + 9];
+  color[j+60] = ['#' + 9 + 0 + G];
+  }
+document.write(color.join(' '));
+
+
+var div = document.getElementsByClassName("classEl");
+var risu = document.getElementById('risu');
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {           //div color
+      this.style.backgroundColor = color[j];
+      j+=1; if (j>color.length) {j=1};
+      risu.innerHTML = color.length//[j];
+          }
+    }
+j=Math.floor(Math.random()*70);           //random start
+
+
+/*for (var j=0, k=9; j<10, k>=0; j++, k--){  //color array B/W
+  color[j] = ['#' + j + j + j];               //brighter
+  color[j+10] = ['#' + k + k + k];            //darker
+}
+*/
+
+/*      //BACKUP
+var color = [];
+var v=0;                //color progression
+
+for (var j=0, k=9; j<10, k>=0; j++, k--){  //color array
+  color[j] = ['#' + j + j + j];               //brighter
+  color[j+10] = ['#' + k + k + k];            //darker
+}
+  document.write('<br>' + color[19]);
+
+var div = document.getElementsByClassName("classEl");
+var risu = document.getElementById('risu');
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {           //div color
+      this.style.backgroundColor = color[v];
+      v+=1; if (v>19) {v=0};
+          }
+    }
+
+*/
+/*      //BACKUP2
+var color = [];
+var v=0;                //color progression
+
+for (var j=0, k=9; j<10, k>=0; j++, k--){  //color array
+  color[j] = ['#' + j + j + j];               //brighter
+  color[j+10] = ['#' + k + k + k];            //darker
+}
+  document.write('<br>' + color[19]);
+
+var div = document.getElementsByClassName("classEl");
+var risu = document.getElementById('risu');
+for(var i = 0; i < div.length; i++) {
+    div[i].onmouseover = function() {           //div color
+      this.style.backgroundColor = color[v];
+      v+=1; if (v>19) {v=0};
+          }
+    }
+
+*/
+</script>
+</body>
+</html>
